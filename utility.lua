@@ -1,8 +1,8 @@
 function define_bee()
   -- setup bee_definition 
   bee_def = {
-    id = "nightcrawler",
-    title = "Nightcrawler",
+    id = "amber",
+    title = "Amber",
     latin = "Crawly Nighty",
     hint = "Found on only the darkest of nights",
     desc = "This is just a cool damn bee",
