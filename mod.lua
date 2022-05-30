@@ -1,4 +1,4 @@
-MOD_NAME = "natura_bee"
+MOD_NAME = "natura_bees"
 
 function register()
   return {
