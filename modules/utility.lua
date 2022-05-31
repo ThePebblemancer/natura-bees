@@ -43,3 +43,15 @@ function define_bee()
     nightcrawler = {"high"}
   }, {"none"}) -- default for all the other bees
 end
+
+
+
+function click()
+  highlighted = api_get_highlighted("obj")
+  if highlighted ~= nil then
+    inst = api_get_inst(highlighted)
+    if inst["oid"] == true then
+      api_give_item("bee.common", 1)
+    end
+  end
+end
