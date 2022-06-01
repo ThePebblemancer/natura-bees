@@ -21,6 +21,6 @@ end
 
 function click(button)
 
-  api_log("click", button
+  api_log("click", button)
 
 end
