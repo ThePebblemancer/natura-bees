@@ -91,39 +91,38 @@ function click(button, click_type)
   if button == "LEFT" and click_type == "PRESSED" then
     api_log("debug", "clicked")
     highlighted = api_get_highlighted("obj")
-    if highlighted ~= nil then
-      api_log("debug", "clicked on something")
+      if highlighted ~= nil then
+       api_log("debug", "clicked on highlighted")
       inst = api_get_inst(highlighted)
-      if inst["oid"] == "tree" then
-        api_log("debug", "clicked on a tree")
-        api_create_timer("giver", 0.1)
+        if inst["oid"] == "tree" then
+          api_log("debug", "highlighted is a tree, starting timer")
+              api_create_timer("giver", 0.1)
+        else
+          api_log("debug", "clicked on something that isn't a tree. nothing happens")
+        end
+        else
+          api_log("debug", "clicked on nothing. nothing happens")
+        end
       end
     end
-  end
-end
 
 
 
-function giver()
-  api_log("debug", "0.1 seconds have passed. Success value is 4")
-  tree_checker2 = api_get_highlighted("obj")
-  success_value = 4
-      if tree_checker2 ~= nil then
-       api_log("debug", "something is highlighted")
-      inst = api_get_inst(tree_checker2)
-        if inst["oid"] == "tree" then
-          api_log("debug", "tree highlighted. Success value is 3")
-          success_value = 3
+  function giver()
+    tree_checker = api_get_highlighted("obj")
+    api_log("debug", "timer finished, checking for destroyed tree")
+    if tree_checker == nil then
+      api_log("debug", "nothing highlighted. testing your luck")
+        chance = api_random(1)
+        if chance == 0 then
+          api_log("debug", "lucky. have a bee")
+          mouse_pos = api_get_mouse_position()
+          stats = api_create_bee_stats("arbor", false)
+          api_create_item("bee", 1, mouse_pos["x"], mouse_pos["y"], stats)
         else
-          success_value = 4
-        end
-      else
-        if (success_value == 4) then
-          api_log("debug", "success value is 3 again. Get bee")
-          local mouse_pos = api_get_mouse_position()
-    api_create_item("bee", 1, mouse_pos.x, mouse_pos.y, api_create_bee_stats("common", false)) -- credits: ThatGravyBoat
-          success_value = 3
+          api_log("debug", "unlucky. nothing happens")
+    end
+  else
+    api_log("debug", "you still have something highlighted. nothing happens")
   end
 end
-end
-  end
