@@ -108,15 +108,16 @@ function giver()
   api_log("debug", "0.1 seconds have passed. Success value is 4")
   tree_checker2 = api_get_highlighted("obj")
   success_value = 4
-      if highlighted ~= nil then
+      if tree_checker2 ~= nil then
        api_log("debug", "something is highlighted")
-      inst = api_get_inst(highlighted)
+      inst = api_get_inst(tree_checker2)
         if inst["oid"] == "tree" then
           api_log("debug", "tree highlighted. Success value is 3")
           success_value = 3
         else
           success_value = 4
         end
+      else
         if (success_value == 4) then
           api_log("debug", "success value is 3 again. Get bee")
           local mouse_pos = api_get_mouse_position()
