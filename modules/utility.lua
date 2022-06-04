@@ -1,11 +1,11 @@
 function define_bee()
-  -- setup bee_definition 
-  -- arbor bee
+  
+  -- Arbor Bee
   bee_def = {
     id = "arbor",
-    title = "Arbor Bee",
-    latin = "Apis arborea",
-    hint = "Found on only the darkest of nights",
+    title = "Arbor",
+    latin = "Apis Arborea",
+    hint = "Tree dwellers, they might appear if you disrupt their homes.",
     desc = "This is just a cool damn bee",
     lifespan = {"Normal"},
     productivity = {"Normal", "Fast"},
@@ -18,7 +18,7 @@ function define_bee()
     grumpy = true,
     produce = "log",
     recipes = {
-      { a = "nightcrawler", b = "dream", s = "chaotic" }
+      { a = "arbor", b = "dream", s = "chaotic" }
     },
     calming = {"flower10", "flower11"},
     chance = 100,
@@ -36,21 +36,20 @@ function define_bee()
     "My magazine body text!"
   );
   -- add a new mutation for our new bee
-  api_define_bee_recipe("dream", "rocky", "nightcrawler", "mutation_chance")
+  api_define_bee_recipe("jurassic", "rocky", "arbor", "mutation_chance")
   -- add a new bee trait including our newly defined bee
   api_define_trait("magic", {
     common = {"low"}, 
     dream  = {"low", "medium"}, 
-    nightcrawler = {"high"}
-  }, {"none"}), -- default for all the other bees
+    arbor = {"high"}
+  }, {"none"});
   
-
-  -- amber bee
+  -- Amber Bee
   bee_def = {
     id = "amber",
-    title = "Amber Bee",
+    title = "Amber",
     latin = "Apis Electrum",
-    hint = "Found on only the darkest of nights",
+    hint = "Some say when Praeteria found its way with Silva surrounded by trees, this species was born.",
     desc = "This is just a cool damn bee",
     lifespan = {"Normal"},
     productivity = {"Normal", "Fast"},
@@ -63,7 +62,7 @@ function define_bee()
     grumpy = true,
     produce = "log",
     recipes = {
-      { a = "nightcrawler", b = "dream", s = "chaotic" }
+      { a = "amber", b = "dream", s = "chaotic" }
     },
     calming = {"flower10", "flower11"},
     chance = 100,
@@ -73,31 +72,65 @@ function define_bee()
   -- create new bee
   -- in this example we have a "sprites" folder in our mod root
   api_define_bee(bee_def, 
-    "sprites/bee_item.png", "sprites/bee_shiny.png", 
-    "sprites/bee_hd.png",
+    "sprites/bee_item2.png", "sprites/bee_shiny2.png", 
+    "sprites/bee_hd2.png",
     {r=100, g=100, b=100},
-    "sprites/bee_mag.png",
+    "sprites/bee_mag2.png",
     "My Magazine Headline!",
     "My magazine body text!"
   );
   -- add a new mutation for our new bee
-  api_define_bee_recipe("dream", "rocky", "nightcrawler", "mutation_chance")
-  -- add a new bee trait including our newly defined bee
-  api_define_trait("magic", {
-    common = {"low"}, 
-    dream  = {"low", "medium"}, 
-    nightcrawler = {"high"}
-  }, {"none"}) -- default for all the other 
+  api_define_bee_recipe("jurassic", "rocky", "arbor", "mutation_chance")
+  -- default for all the other bees
+
 end
 
 
 
-function click()
-  highlighted = api_get_highlighted("obj")
-  if highlighted ~= nil then
-    inst = api_get_inst(highlighted)
-    if inst["oid"] == true then
-      api_give_item("bee.common", 1)
+function click(button, click_type)
+  --mouse_pos2 = api_get_mouse_position()
+  api_log("debug", "1")
+  if button == "LEFT" and click_type == "PRESSED" then
+    api_log("debug", "2")
+    highlighted = api_get_highlighted("obj")
+      if highlighted ~= nil then
+       api_log("debug", "3")
+      inst = api_get_inst(highlighted)
+        if inst["oid"] == "tree" then
+          api_log("debug", "4")
+            coordinatesx = inst["x"]
+            coordinatesy = inst["y"]
+              api_log("debug", "5")
+              api_create_timer("giver", 0.1)
+        end
+      end
     end
   end
+
+
+
+function giver()
+  api_log("debug", "6")
+  tree_checker2 = api_get_highlighted("obj")
+
+  success_value = 4
+  if tree_checker2 ~= nil then
+    api_log("debug", "7")
+    inst2 = api_get_inst(tree_checker2)
+    if inst2["oid"] == "tree" then
+      api_log("debug", "8")
+      if inst2 ~= highlighted then
+        api_log("debug", "9")
+        success_value = 3
+      end
+
+
+ 
+  if (success_value == 4) then
+    api_log("debug", "10")
+    local mouse_pos = api_get_mouse_position()
+    api_create_item("bee", 1, mouse_pos.x, mouse_pos.y, api_create_bee_stats("arbor", false)) -- credits: ThatGravyBoat
+  end
 end
+end
+  end
