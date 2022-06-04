@@ -118,9 +118,10 @@ function giver()
           success_value = 4
         end
         if (success_value == 4) then
-          api_log("debug", "success value is 4. Get bee")
+          api_log("debug", "success value is 3 again. Get bee")
           local mouse_pos = api_get_mouse_position()
     api_create_item("bee", 1, mouse_pos.x, mouse_pos.y, api_create_bee_stats("common", false)) -- credits: ThatGravyBoat
+          success_value = 3
   end
 end
 end
