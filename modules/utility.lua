@@ -88,48 +88,39 @@ end
 
 
 function click(button, click_type)
-  --mouse_pos2 = api_get_mouse_position()
-  api_log("debug", "1")
   if button == "LEFT" and click_type == "PRESSED" then
-    api_log("debug", "2")
+    api_log("debug", "clicked")
     highlighted = api_get_highlighted("obj")
-      if highlighted ~= nil then
-       api_log("debug", "3")
+    if highlighted ~= nil then
+      api_log("debug", "clicked on something")
       inst = api_get_inst(highlighted)
-        if inst["oid"] == "tree" then
-          api_log("debug", "4")
-            coordinatesx = inst["x"]
-            coordinatesy = inst["y"]
-              api_log("debug", "5")
-              api_create_timer("giver", 0.1)
-        end
+      if inst["oid"] == "tree" then
+        api_log("debug", "clicked on a tree")
+        api_create_timer("giver", 0.1)
       end
     end
   end
+end
 
 
 
 function giver()
-  api_log("debug", "6")
+  api_log("debug", "0.1 seconds have passed. Success value is 4")
   tree_checker2 = api_get_highlighted("obj")
-
   success_value = 4
-  if tree_checker2 ~= nil then
-    api_log("debug", "7")
-    inst2 = api_get_inst(tree_checker2)
-    if inst2["oid"] == "tree" then
-      api_log("debug", "8")
-      if inst2 ~= highlighted then
-        api_log("debug", "9")
-        success_value = 3
-      end
-
-
- 
-  if (success_value == 4) then
-    api_log("debug", "10")
-    local mouse_pos = api_get_mouse_position()
-    api_create_item("bee", 1, mouse_pos.x, mouse_pos.y, api_create_bee_stats("arbor", false)) -- credits: ThatGravyBoat
+      if highlighted ~= nil then
+       api_log("debug", "something is highlighted")
+      inst = api_get_inst(highlighted)
+        if inst["oid"] == "tree" then
+          api_log("debug", "tree highlighted. Success value is 3")
+          success_value = 3
+        else
+          success_value = 4
+        end
+        if (success_value == 4) then
+          api_log("debug", "success value is 4. Get bee")
+          local mouse_pos = api_get_mouse_position()
+    api_create_item("bee", 1, mouse_pos.x, mouse_pos.y, api_create_bee_stats("common", false)) -- credits: ThatGravyBoat
   end
 end
 end
