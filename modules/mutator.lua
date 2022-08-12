@@ -7,27 +7,31 @@ api_define_trait("in_natura", {
 
 
 
-INDUSTRIAL_BEES = {}
-MAN_MADE_BEES = {}
-MODIFIED_BEES = {}
-IN_NATURA_BEES = {"bee:common", "bee:uncommon"}
-MORE_THAN_NATURAL_BEES = {}
-OVERLY_NATURAL_BEES = {}
-SUPERNATURAL_BEES = {}
+INDUSTRIAL_BEES = {"bee:crystal", "bee:ancient", "bee:bohemian", "bee:prolific", "bee:industrious", "bee:empress"}
+MAN_MADE_BEES = {"bee:regal", "bee:worker", "bee:stubborn", "bee:domesticated", "bee:hermit"}
+MODIFIED_BEES = {"bee:verdant", "bee:vibrant", "bee:misty", "bee:arctic", "bee:blazing"}
+IN_NATURA_BEES = {"bee:common", "bee:uncommon", "bee:forest", "bee:verge", "bee:rocky", "bee:murky", "bee:muggy", "bee:frosty", "bee:fiery"}
+MORE_THAN_NATURAL_BEES = {"bee:glowing", "bee:drowsy", "bee:jurassic", "bee:melodic"}
+OVERLY_NATURAL_BEES = {"bee:dream", "bee:twilight", "bee:lighting", "bee:hallowed"}
+SUPERNATURAL_BEES = {"bee:sacred"}
 
-api_define_validation_icon("customX:sapling", "sprites/validation_seed.png")
+BEE_PRODUCE = {"beepollen", "stickypearl", "honeydew", "combfragment", "waxypearl", "hivedust", "morningdew", "dye9", "spice1", "stickyshard", "claydust", "dye11", "stone", "royaljelly", "canister2", "waxshard", "glossypearl", "spice2", "dye10", "icyshard", "charredpearl", "spice3", "honeycore2", "spice4", "seed0", "gloriouspearl", "frame5", "unstabledust", "dye17", "spice5", "queenspearl", "discfragment", "lightningshard", "dye18", "blessedpearl", "randomjelly"}
+
+api_define_validation_icon("customX:acorn", "sprites/validation_seed.png")
+api_define_validation_icon("customX:PRODUCE", "sprites/validation_produce.png")
+
 
 
 
 
 seed_exchanger_layout = {
-    {28, 21},
+    {28, 21, "Input", BEE_PRODUCE},
     {50, 21, "Input", {"bee"}},
     {17, 40, "Input", {"bee"}},
-    {39, 40, "Input", {"customX:sapling"}},
-    {61, 40},
+    {39, 40, "Input", {"customX:acorn"}},
+    {61, 40, "Input", BEE_PRODUCE},
     {112, 40, "Output"},
-    {28, 59},
+    {28, 59, "Input", BEE_PRODUCE},
     {50, 59, "Input", {"bee"}},
     {7, 89},
     {30, 89},
@@ -109,18 +113,43 @@ end
 
 
 function recipes(menu_id)
-    for i=1, #IN_NATURA_BEES do
-        slot2 = api_slot_item_id(menu_id, 2)
-        slot3 = api_slot_item_id(menu_id, 3)
-        slot8 = api_slot_item_id(menu_id, 8)
-        api_log("debug", slot2[menu_id])
-        api_log("debug", slot3)
-        api_log("debug", slot8)
-        if slot2 == IN_NATURA_BEES[i] then
+    cluster = 0
+    central = api_get_slot(menu_id, 4)
+    slot2 = api_slot_item_id(menu_id, 2)
+    slot3 = api_slot_item_id(menu_id, 3)
+    slot8 = api_slot_item_id(menu_id, 8)
+    if central ~= nil then
+        if central["item"] == "acorn1" then
+            for n = 1, #IN_NATURA_BEES do
+                if slot2 == IN_NATURA_BEES[n] and slot3 == IN_NATURA_BEES[n] and slot8 == IN_NATURA_BEES[n] then
+                    api_log("debug", slot2 .. slot3 .. slot8)
+                    produce_slot1 = api_slot_match_range(menu_id, {"honeydew"}, {1, 5, 7}, true)
+                    produce_slot2 = api_slot_match_range(menu_id, {"beepollen"}, {1, 5, 7}, true)
+                    produce_slot3 = api_slot_match_range(menu_id, {"stickypearl"}, {1, 5, 7}, true)
+                    if produce_slot3 ~= nil and produce_slot3["item"] == "stickypearl" then
+                        api_log("debug", "stickypearl found")
+                        if produce_slot2 ~= nil and produce_slot2["item"] == "beepollen" then
+                            api_log("debug", "beepollen found")
+                            if produce_slot1 ~= nil and produce_slot1["item"] == "honeydew" then
+                                api_log("debug", "honeydew found")
+                    cluster = 1
+                    return true
+                end
+            end
+        end
+    end
+end
+end
+        if central["item"] == "acorn1" then
+    for n = 1, #MODIFIED_BEES do
+        if slot2 == MODIFIED_BEES[n] and slot3 == MODIFIED_BEES[n] and slot8 == MODIFIED_BEES[n] then
+            cluster = 2
             return true
         end
-    return false
     end
+end
+end
+    return false
 end
 
 
@@ -137,16 +166,36 @@ function seed_exchanger_tick(menu_id)
         api_sp(menu_id, "p_start", 0)
       
         -- get the "input" slots to get an item
-        input_slot = api_slot_match_range(menu_id, {"bee"}, {1, 2, 3, 4, 5, 7, 8}, true)
+        input_slot = api_slot_match_range(menu_id, {"bee"}, {2, 3, 8}, false)
+        input_slot2 = api_slot_match_range(menu_id, BEE_PRODUCE, {1, 5, 7}, false)
+        input_slot_center = api_slot_match_range(menu_id, {"ANY"}, {4}, false)
         -- assuming there is a slot width stuff
         if input_slot ~= nil then
             
-            if recipes() == true then
+            if recipes(menu_id) == true then
                 -- remove 1 from slot
-                api_slot_decr(input_slot["id"])
-
+                for i = 1, #input_slot do
+                api_slot_decr(input_slot[i]["id"])
+                end
+                for i = 1, #input_slot2 do
+                    api_slot_decr(input_slot2[i]["id"])
+                end
+                    api_slot_decr(input_slot_center[1]["id"])
                 -- add seed to output
-                seed_item = api_choose({"seed1", "seed2", "seed3"})
+                if cluster == 1 then
+                output_slot = api_slot_match_range(menu_id, {"", "natura_bees_birch_tree_acorn"}, {6}, true)
+                if output_slot ~= nil then
+                    -- if empty slot add 1 seed item
+                    if output_slot["item"] == "" then
+                        api_slot_set(output_slot["id"], "natura_bees_birch_tree_acorn", 1)
+                        -- otherwise add to existing seed item in slot
+                    else 
+                        api_slot_incr(output_slot["id"], 1)
+                    end
+                end
+            end
+            if cluster == 2 then
+                seed_item = api_choose({"seed4", "seed5", "seed6"})
                 output_slot = api_slot_match_range(menu_id, {"", seed_item}, {6}, true)
                 if output_slot ~= nil then
                     -- if empty slot add 1 seed item
@@ -158,10 +207,10 @@ function seed_exchanger_tick(menu_id)
                     end
                 end
             end
+        end
 
-            -- recheck input, if nothing then stop working
-            input_slot = api_slot_match_range(menu_id, {"bee"}, {1, 2, 3, 4, 5, 7, 8}, true)
-            if input_slot == nil then
+            -- recheck input, if nothing then stop working            
+            if recipes(menu_id) == false then
                     api_sp(menu_id, "working", false) end
             end
         end
@@ -171,15 +220,14 @@ end
 
 function seed_exchanger_change(menu_id)
     -- if we have items in the first four slots let's get to work
-    input_slot = api_slot_match_range(menu_id, {"bee"}, {1, 2, 3, 4, 5, 7, 8}, true)
-    if input_slot ~= nil then 
+    --input_slot = api_slot_match_range(menu_id, {"ANY"}, {1, 2, 3, 4, 5, 7, 8}, true)
+    --if input_slot ~= nil then 
 
-        if recipes() == true then
+        if recipes(menu_id) == true then
             api_sp(menu_id, "working", true)
-
+        --end
     else
         api_sp(menu_id, "working", false)
-    end
     end
 end
 
