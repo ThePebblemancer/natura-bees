@@ -1,4 +1,4 @@
-  --Mystery Seed I
+    --Mystery Seed I
   mystery1 = {
     id = "mystery1",
     name = "Mystery Seed I",
@@ -56,7 +56,7 @@
   api_define_item(mysterya, "sprites/aquatic_mystery_seed_icon.png")
 
 
-  --Aquatic Mystery Seed
+  --Amber Chunks
   amber_chunks = {
     id = "amber_chunks",
     name = "Amber Chunks",
@@ -64,12 +64,61 @@
     tooltip = "Can be uprooted with a Spade",
     shop_buy = 0,
     shop_sell = 0,
-    placeable = true,
-    place_grass = true,
-    obj = "natura_bees_aquatic_mystery_seed",
+    --placeable = true,
+    --place_grass = true,
+    --obj = "natura_bees_aquatic_mystery_seed",
     bee_lore = "Plant this seed to see what's inside!"
   }
-  api_define_item(amber_chunks, "sprites/aquatic_mystery_seed_icon.png")
+  api_define_item(amber_chunks, "sprites/amber_chunks.png")
+  --Dust
+  dust_def = {
+    id = "dust",
+    name = "Dust",
+    category = "Resource",
+    tooltip = "Can be uprooted with a Spade",
+    shop_buy = 0,
+    shop_sell = 0,
+    --placeable = true,
+    bee_lore = "Plant this seed to see what's inside!"
+  }
+  api_define_item(dust_def, "sprites/dust.png")
+  --Leaves
+  leaves_def = {
+    id = "leaves",
+    name = "Leaves",
+    category = "Resource",
+    tooltip = "Can be uprooted with a Spade",
+    shop_buy = 0,
+    shop_sell = 0,
+    --placeable = true,
+    bee_lore = "Plant this seed to see what's inside!"
+  }
+  api_define_item(leaves_def, "sprites/leaves.png")
+  --Dried Leaves
+  dried_leaves_def = {
+    id = "dried_leaves",
+    name = "Dried Leaves",
+    category = "Resource",
+    tooltip = "Can be uprooted with a Spade",
+    shop_buy = 0,
+    shop_sell = 0,
+    --placeable = true,
+    bee_lore = "Plant this seed to see what's inside!"
+  }
+  api_define_item(dried_leaves_def, "sprites/dried_leaves.png")
+  --Needle Leaves
+  needles_def = {
+    id = "needles",
+    name = "Needle Leaves",
+    category = "Resource",
+    tooltip = "Can be uprooted with a Spade",
+    shop_buy = 0,
+    shop_sell = 0,
+    --placeable = true,
+    bee_lore = "Plant this seed to see what's inside!"
+  }
+  api_define_item(needles_def, "sprites/needles.png")
+
 
 
 
@@ -92,7 +141,7 @@ function define_bee()
       rainlover = false,
       snowlover = false,
       grumpy = false,
-      produce = "log",
+      produce = "natura_bees_leaves",
       --[[recipes = {
         { a = "arbor", b = "dream", s = "chaotic" }
       },]]
@@ -182,7 +231,7 @@ function define_bee()
       rainlover = false,
       snowlover = false,
       grumpy = true,
-      produce = "log",
+      produce = "natura_bees_dried_leaves",
       --[[recipes = {
         { a = "arbor", b = "dream", s = "chaotic" }
       },]]
@@ -219,7 +268,7 @@ function define_bee()
       rainlover = false,
       snowlover = false,
       grumpy = true,
-      produce = "log",
+      produce = "natura_bees_needles",
       --[[recipes = {
         { a = "trunk", b = "bark", s = "resin" }
       },]]
@@ -491,7 +540,7 @@ function define_bee()
       rainlover = false,
       snowlover = false,
       grumpy = false,
-      produce = "log",
+      produce = "natura_bees_dust",
       --[[recipes = {
         { a = "amber", b = "dream", s = "chaotic" }
       },]]
@@ -532,7 +581,7 @@ function define_bee()
       rainlover = false,
       snowlover = false,
       grumpy = false,
-      produce = "log",
+      produce = "natura_bees_amber_chunks",
       --[[recipes = {
         { a = "amber", b = "dream", s = "chaotic" }
       },]]
@@ -615,7 +664,7 @@ function obj_definition()
       variants = 4
     }, "sprites/birch_sizes.png")
     api_define_object({
-      id = "birch_tree_sapling",
+      id = "birch_tree_acorn",
       name = "Birch Tree Sapling",
       category = "Resource",
       tooltip = "Can be uprooted with a Spade",
@@ -624,7 +673,7 @@ function obj_definition()
       tools = {"spadeX"},
       place_grass = true,
       has_shadow = true,
-      growth = "natura_bees_birch_tree 100 400",
+      growth = "natura_bees_birch_tree 1 4",
       item_sprite = "sprites/birch_seed.png"
     }, "sprites/birch_tree_sapling.png")
   
@@ -646,7 +695,7 @@ function obj_definition()
       --growth = "flower2008 10 40"
     }, "sprites/maple_sizes6.png")
     api_define_object({
-      id = "maple_tree_sapling",
+      id = "maple_tree_acorn",
       name = "Maple Tree Sapling",
       category = "Resource",
       tooltip = "Can be uprooted with a Spade",
@@ -675,7 +724,7 @@ function obj_definition()
       variants = 4
     }, "sprites/pine_sizes.png")
     api_define_object({
-      id = "pine_tree_sapling",
+      id = "pine_tree_acorn",
       name = "Pine Tree Sapling",
       category = "Resource",
       tooltip = "Can be uprooted with a Spade",
@@ -703,7 +752,7 @@ function obj_definition()
       variants = 4
     }, "sprites/mangrove_sizes.png")
     api_define_object({
-      id = "mangrove_tree_sapling",
+      id = "mangrove_tree_acorn",
       name = "Mangrove Tree Propagule",
       category = "Resource",
       tooltip = "Can be uprooted with a Spade",
@@ -714,7 +763,7 @@ function obj_definition()
       has_shadow = true,
       growth = "natura_bees_mangrove_tree 100 400",
       item_sprite = "sprites/mangrove_seed.png"
-    }, "sprites/birch_mangrove_sapling.png")
+    }, "sprites/mangrove_sapling.png")
 
 
 
@@ -792,10 +841,11 @@ function obj_definition()
       tools = {"mouse1", "axeX"},
       place_grass = true,
       hp = 10,
-      has_shadow = true
+      has_shadow = true,
+      variants = 3
     }, "sprites/willow_tree.png")
     api_define_object({
-      id = "willow_tree_sapling",
+      id = "willow_tree_acorn",
       name = "Willow Tree Sapling",
       category = "Resource",
       tooltip = "Can be uprooted with a Spade",
@@ -809,8 +859,360 @@ function obj_definition()
     }, "sprites/willow_tree_sapling.png")
 
 
+    --Redwood
+    api_define_object({
+      id = "redwood_tree",
+      name = "Redwood Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/redwood_sizes.png")
+    api_define_object({
+      id = "redwood_tree_acorn",
+      name = "Redwood Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_redwood_tree 1 4",
+      item_sprite = "sprites/redwood_seed.png"
+    }, "sprites/redwood_tree_sapling.png")
 
 
+    --Acacia
+    api_define_object({
+      id = "acacia_tree",
+      name = "Acacia Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/acacia_sizes.png")
+    api_define_object({
+      id = "acacia_tree_acorn",
+      name = "Acacia Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_acacia_tree 1 4",
+      item_sprite = "sprites/acacia_seed.png"
+    }, "sprites/acacia_tree_sapling.png")
+
+
+    --Sakura
+    api_define_object({
+      id = "sakura_tree",
+      name = "Cherry Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/sakura_sizes.png")
+    api_define_object({
+      id = "sakura_tree_acorn",
+      name = "Cherry Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_sakura_tree 1 4",
+      item_sprite = "sprites/sakura_seed.png"
+    }, "sprites/sakura_tree_sapling.png")
+
+
+    --Araucária
+    api_define_object({
+      id = "araucaria_tree",
+      name = "Araucaria Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/araucaria_sizes.png")
+    api_define_object({
+      id = "araucaria_tree_acorn",
+      name = "Araucaria Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_araucaria_tree 1 4",
+      item_sprite = "sprites/araucaria_seed.png"
+    }, "sprites/araucaria_tree_sapling.png")
+
+
+    --Cypress
+    api_define_object({
+      id = "cypress_tree",
+      name = "Cypress Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/cypress_sizes.png")
+    api_define_object({
+      id = "cypress_tree_acorn",
+      name = "Cypress Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_cypress_tree 1 4",
+      item_sprite = "sprites/cypress_seed.png"
+    }, "sprites/cypress_tree_sapling.png")
+    
+
+    --Jacarandá
+    api_define_object({
+      id = "jacaranda_tree",
+      name = "Jacaranda Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/jacaranda_sizes.png")
+    api_define_object({
+      id = "jacaranda_tree_acorn",
+      name = "Jacaranda Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_jacaranda_tree 1 4",
+      item_sprite = "sprites/jacaranda_seed.png"
+    }, "sprites/jacaranda_tree_sapling.png")
+
+
+    --Baobab
+    api_define_object({
+      id = "baobab_tree",
+      name = "Baobab Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/baobab_sizes.png")
+    api_define_object({
+      id = "baobab_tree_acorn",
+      name = "Baobab Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_baobab_tree 1 4",
+      item_sprite = "sprites/baobab_seed.png"
+    }, "sprites/baobab_tree_sapling.png")
+
+
+    --Ipê
+    api_define_object({
+      id = "ipe_tree",
+      name = "Ipe Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/ipe_sizes.png")
+    api_define_object({
+      id = "ipe_tree_acorn",
+      name = "Ipe Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_ipe_tree 1 4",
+      item_sprite = "sprites/ipe_seed.png"
+    }, "sprites/ipe_tree_sapling.png")
+
+
+    --Apple
+    api_define_object({
+      id = "apple_tree",
+      name = "Apple Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 4
+    }, "sprites/apple_sizes.png")
+    api_define_object({
+      id = "apple_tree_acorn",
+      name = "Apple Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_apple_tree 1 4",
+      item_sprite = "sprites/apple_seed.png"
+    }, "sprites/apple_tree_sapling.png")
+
+
+    --Guaraná
+    api_define_object({
+      id = "guarana_tree",
+      name = "Guarana Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/guarana_sizes.png")
+    api_define_object({
+      id = "guarana_tree_acorn",
+      name = "Guarana Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_guarana_tree 1 4",
+      item_sprite = "sprites/guarana_seed.png"
+    }, "sprites/guarana_tree_sapling.png")
+
+
+    --Rowan
+    api_define_object({
+      id = "rowan_tree",
+      name = "Rowan Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 4
+    }, "sprites/rowan_sizes.png")
+    api_define_object({
+      id = "rowan_tree_acorn",
+      name = "Rowan Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_rowan_tree 1 4",
+      item_sprite = "sprites/rowan_seed.png"
+    }, "sprites/rowan_tree_sapling.png")
+
+
+    --Hawthorn
+    api_define_object({
+      id = "hawthorn_tree",
+      name = "Hawthorn Tree",
+      category = "Resource",
+      tooltip = "Can be chopped down with an Axe for Logs",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"mouse1", "axeX"},
+      place_grass = true,
+      hp = 10,
+      has_shadow = true,
+      variants = 3
+    }, "sprites/hawthorn_sizes.png")
+    api_define_object({
+      id = "hawthorn_tree_acorn",
+      name = "Hawthorn Tree Sapling",
+      category = "Resource",
+      tooltip = "Can be uprooted with a Spade",
+      shop_buy = 0,
+      shop_sell = 0,
+      tools = {"spadeX"},
+      place_grass = true,
+      has_shadow = true,
+      growth = "natura_bees_hawthorn_tree 1 4",
+      item_sprite = "sprites/hawthorn_seed.png"
+    }, "sprites/hawthorn_tree_sapling.png")
+
+
+
+
+
+
+
+    
 
   end
 
