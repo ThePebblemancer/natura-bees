@@ -33,12 +33,12 @@ stock1 = {"log", "log", "log"}
 stock2 = {"log"}
 changing_stock = {1, stock1, stock2}
 
-function discovery()
-  bouquet = api_check_discovery("natura_bees_birch_tree_sapling")
+--[[function discovery()
+  bouquet = api_check_discovery("natura_bees_birch_tree_acorn")
   if bouquet == true then
-    table.insert(stock1, #stock1+1,"natura_bees_birch_tree_sapling")
+    table.insert(stock1, #stock1+1,"natura_bees_birch_tree_acorn")
   end
-end
+end]]
 
 
 function change_stock(npc_id, stock_table)
