@@ -2,35 +2,15 @@ function destroy(id, x, y, oid)
   mouse_pos = api_get_mouse_position()
   if oid == "natura_bees_birch_tree" then
     api_create_item("log", api_random_range(1, 3), mouse_pos["x"], mouse_pos["y"], nil)
-    birch_discovery = api_check_discovery("natura_bees_birch_tree_sapling")
-    if birch_discovery == true then
-      table.insert(stock1, "natura_bees_birch_tree_sapling")
-      changing_stock[2] = stock1
-    end
   end
   if oid == "natura_bees_maple_tree" then
     api_create_item("log", api_random_range(1, 3), mouse_pos["x"], mouse_pos["y"], nil)
-    maple_discovery = api_check_discovery("natura_bees_maple_tree_sapling")
-    if maple_discovery == true then
-      table.insert(stock1, "natura_bees_maple_tree_sapling")
-      changing_stock[2] = stock1
-    end
   end
   if oid == "natura_bees_pine_tree" then
       api_create_item("log", api_random_range(1, 3), mouse_pos["x"], mouse_pos["y"], nil)
-      pine_discovery = api_check_discovery("natura_bees_pine_tree_sapling")
-    if pine_discovery == true then
-      table.insert(stock1, "natura_bees_pine_tree_sapling")
-      changing_stock[2] = stock1
-    end
   end
   if oid == "natura_bees_mangrove_tree" then
     api_create_item("log", api_random_range(1, 3), mouse_pos["x"], mouse_pos["y"], nil)
-    mangrove_discovery = api_check_discovery("natura_bees_mangrove_tree_sapling")
-    if mangrove_discovery == true then
-      table.insert(stock1, "natura_bees_mangrove_tree_sapling")
-      changing_stock[2] = stock1
-    end
   end
   if gen_complete == true then
     if oid == "tree" then
@@ -50,7 +30,7 @@ function destroy(id, x, y, oid)
       api_create_item("bee", 1, mouse_pos["x"], mouse_pos["y"], stats)
     end
   end
-  if oid == "natura_bees_mystery_seed_i" then
+  --[[if oid == "natura_bees_mystery_seed_i" then
     tier_i = api_choose({"seedling1", "seedling3"})
     api_create_obj(tier_i, x, y)
   end
@@ -65,8 +45,59 @@ function destroy(id, x, y, oid)
   if oid == "natura_bees_aquatic_mystery_seed" then
     tier_aquatic = api_choose({"seedling2", "seedling6", "seedling8", "seedling11"})
     api_create_obj(tier_aquatic, x, y)
+  end]]
+end
+
+
+
+function create(id, x, y, oid, inst_type)
+  if oid == "natura_bees_birch_tree" then
+    random_range = api_random_range(2.0, 4.0)
+    api_set_property(id, "total_health", random_range)
+    api_set_property(id, "current_health", random_range)
+    api_set_property(id, "sy", y + 11)
+  end
+  if oid == "natura_bees_pine_tree" then
+    random_range = api_random_range(4.0, 6.0)
+    api_set_property(id, "total_health", random_range)
+    api_set_property(id, "current_health", random_range)
+    api_set_property(id, "sy", y + 11)
+  end
+  if oid == "natura_bees_mangrove_tree" then
+    random_range = api_random_range(4.0, 6.0)
+    api_set_property(id, "total_health", random_range)
+    api_set_property(id, "current_health", random_range)
+    api_set_property(id, "sy", y + 17) 
+  end
+  if oid == "natura_bees_maple_tree" then
+    random_range = api_random_range(3.0, 5.0)
+    api_set_property(id, "total_health", random_range)
+    api_set_property(id, "current_health", random_range)
+    api_set_property(id, "sy", y + 11)
+  end
+  if oid == "natura_bees_mystery_seed_i" then
+    tier_i = api_choose({"seedling1", "seedling3"})
+    api_create_obj(tier_i, x, y)
+    api_destroy_inst(id)
+  end
+  if oid == "natura_bees_mystery_seed_ii" then
+    tier_ii = api_choose({"seedling4", "seedling5", "seedling7"})
+    api_create_obj(tier_ii, x, y)
+    api_destroy_inst(id)
+  end
+  if oid == "natura_bees_mystery_seed_iii" then
+    tier_iii = api_choose({"seedling9", "seedling10", "seedling12", "seedling13"})
+    api_create_obj(tier_iii, x, y)
+    api_destroy_inst(id)
+  end
+  if oid == "natura_bees_aquatic_mystery_seed" then
+    tier_aquatic = api_choose({"seedling2", "seedling6", "seedling8", "seedling11"})
+    api_create_obj(tier_aquatic, x, y)
+    api_destroy_inst(id)
   end
 end
+
+
 
 
 function click(button, click_type)
@@ -104,18 +135,18 @@ function click(button, click_type)
         end
       end
       if equipped == "spade1" or equipped == "spade2" or equipped == "spade3" then
-        if inst["oid"] == "natura_bees_birch_tree_sapling" then
+        if inst["oid"] == "natura_bees_birch_tree_acorn" then
           api_destroy_inst(highlighted)  
-          api_create_item("natura_bees_birch_tree_sapling", 1, mouse_pos["x"], mouse_pos["y"], nil)
-        elseif inst["oid"] == "natura_bees_maple_tree_sapling" then
+          api_create_item("natura_bees_birch_tree_acorn", 1, mouse_pos["x"], mouse_pos["y"], nil)
+        elseif inst["oid"] == "natura_bees_maple_tree_acorn" then
           api_destroy_inst(highlighted)  
-          api_create_item("natura_bees_maple_tree_sapling", 1, mouse_pos["x"], mouse_pos["y"], nil)
-        elseif inst["oid"] == "natura_bees_pine_tree_sapling" then
+          api_create_item("natura_bees_maple_tree_acorn", 1, mouse_pos["x"], mouse_pos["y"], nil)
+        elseif inst["oid"] == "natura_bees_pine_tree_acorn" then
           api_destroy_inst(highlighted)  
-          api_create_item("natura_bees_pine_tree_sapling", 1, mouse_pos["x"], mouse_pos["y"], nil)
-        elseif inst["oid"] == "natura_bees_mangrove_tree_sapling" then
+          api_create_item("natura_bees_pine_tree_acorn", 1, mouse_pos["x"], mouse_pos["y"], nil)
+        elseif inst["oid"] == "natura_bees_mangrove_tree_acorn" then
           api_destroy_inst(highlighted)
-          api_create_item("natura_bees_mangrove_tree_sapling", 1, mouse_pos["x"], mouse_pos["y"], nil)
+          api_create_item("natura_bees_mangrove_tree_acorn", 1, mouse_pos["x"], mouse_pos["y"], nil)
         end
       end
       --[[if inst["oid"] == "flower2008" then
@@ -194,16 +225,16 @@ function clock()
       end
     end
   end]]
-  birch_tree_present = api_get_objects(nil, "natura_bees_birch_tree")
+  --[[birch_tree_present = api_get_objects(nil, "natura_bees_birch_tree")
   pine_tree_present = api_get_objects(nil, "natura_bees_pine_tree")
   maple_tree_present = api_get_objects(nil, "natura_bees_maple_tree")
-  mangrove_tree_present = api_get_objects(nil, "natura_bees_mangrove_tree")
-  mystery_seed_i_present = api_get_objects(nil, "natura_bees_mystery_seed_i")
+  mangrove_tree_present = api_get_objects(nil, "natura_bees_mangrove_tree")]]
+  --[[mystery_seed_i_present = api_get_objects(nil, "natura_bees_mystery_seed_i")
   mystery_seed_ii_present = api_get_objects(nil, "natura_bees_mystery_seed_ii")
   mystery_seed_iii_present = api_get_objects(nil, "natura_bees_mystery_seed_iii")
-  aquatic_mystery_seed_present = api_get_objects(nil, "natura_bees_aquatic_mystery_seed")
+  aquatic_mystery_seed_present = api_get_objects(nil, "natura_bees_aquatic_mystery_seed")]]
   --flowering_maple = api_get_objects(nil, "seedling2008")
-  if #birch_tree_present ~= 0 then
+  --[[if #birch_tree_present ~= 0 then
     for n = 1, #birch_tree_present do
       birch_tree1 = api_gp(birch_tree_present[n]["id"], "total_health")
       birch_tree2 = api_gp(birch_tree_present[n]["id"], "sy") 
@@ -250,8 +281,8 @@ function clock()
         api_set_property(mangrove_tree_present[n]["id"], "sy", mangrove_tree2 + 17)
       end
     end
-  end
-  if #mystery_seed_i_present ~= 0 then
+  end]]
+  --[[if #mystery_seed_i_present ~= 0 then
     for n = 1, #mystery_seed_i_present do
       mystery_seed_i_id = api_gp(mystery_seed_i_present[n]["id"], "id")
       api_destroy_inst(mystery_seed_i_id)
@@ -274,11 +305,11 @@ function clock()
       aquatic_mystery_seed_id = api_gp(aquatic_mystery_seed_present[n]["id"], "id")
       api_destroy_inst(aquatic_mystery_seed_id)
     end
-  end
+  end]]
   --[[if #flowering_maple ~= 0 then
     for n = 1, #flowering_maple do
       inst2 = api_get_inst(flowering_maple[n]["id"])
-      api_create_obj("natura_bees_maple_tree_sapling", inst2["x"], inst2["y"])
+      api_create_obj("natura_bees_maple_tree_acorn", inst2["x"], inst2["y"])
       api_destroy_inst(flowering_maple[n]["id"])
     end
   end]]
@@ -286,9 +317,9 @@ function clock()
   time = api_get_time()
   hour = time["clock"]
   if hour == "17:10" then
-    if api_gp(api_gp(api_get_menu_objects(nil, "npc2008")[1]["menu_id"], "shop"), "open") == true then
+    --if api_gp(api_gp(api_get_menu_objects(nil, "npc2008")[1]["menu_id"], "shop"), "close") == true then
       change_stock("npc2008", changing_stock)
-    end
+    --end
   end
 end
 
@@ -346,4 +377,5 @@ function ready()
   if #friend == 0 then
     api_create_obj("npc2008", 3451, 827)
   end
+  unlock = api_unlock_quest("basic_oak")
 end
