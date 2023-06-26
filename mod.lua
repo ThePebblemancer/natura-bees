@@ -3,7 +3,7 @@ MOD_NAME = "natura_bees"
 function register()
   return {
     name = MOD_NAME,
-    hooks = {"click", "clock", "destroy", "worldgen", "ready", "create"},
+    hooks = {"click", "clock", "destroy", "ready", "create", "draw"},
     modules = {"utility", "define", "mutations", "npc", "mutator", "quests"}
   }
 end
@@ -27,9 +27,13 @@ function init()
   destroy()
   create()
 
-  worldgen()
+  draw()
+  --save()
+  --data()
+  --worldgen()
 
-  npc_definition()
+  npc_definition2()
+  npc2008_dialogue_check()
   --discovery()
   --change_stock()
 
@@ -44,5 +48,9 @@ function init()
 
   define_quests()
 
+
+
+
+  
   return "Success"
 end
