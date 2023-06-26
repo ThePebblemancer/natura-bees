@@ -43,15 +43,15 @@ function mutation_chance(bee_a, bee_b, beehive)
       if chance >= 1 and maple_tree_count >= 5 then return true end
     end
 
-    --[[if (bee_a == "floral" and bee_b == "floral") or (bee_a == "" and bee_b == "") then
+    if (bee_a == "floral" and bee_b == "lotus") or (bee_a == "lotus" and bee_b == "floral") then
   
-      aquatic1 = api_get_objects(100, "flower2", pos)
-      aquatic2 = api_get_objects(100, "flower6", pos)
-      aquatic3 = api_get_objects(100, "flower8", pos)
-      aquatic4 = api_get_objects(100, "flower11", pos)
+      aquatic1 = api_get_objects(100, "flower4", pos)
+      aquatic2 = api_get_objects(100, "flower5", pos)
+      aquatic3 = api_get_objects(100, "flower6", pos)
+      aquatic4 = api_get_objects(100, "flower7", pos)
       chance = api_random(99) + 1
-      if chance >= 50 and #aquatic1 >= 1 and #aquatic2 >= 1 and #aquatic3 >= 1 and #aquatic4 >= 1 then return true end
-    end]]
+      if chance >= 1 and #aquatic1 >= 1 and #aquatic2 >= 1 and #aquatic3 >= 1 and #aquatic4 >= 1 then return true end
+    end
 
       return false
 end
