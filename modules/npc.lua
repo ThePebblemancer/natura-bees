@@ -32,12 +32,12 @@ function npc_definition2()
         name = "Ashley, the Arborist",
         pronouns = "She/Her",
         tooltip = "May the cherries blossom for you",
-        shop = true,
-        walking = true,
-        stock = {"log"},
         specials = {"natura_bees_seed_exchanger", "natura_bees_seed_exchanger", "natura_bees_seed_exchanger"},
+        stock = {"log"},
+        greeting = "May the cherries blossom for you",
         dialogue = dialogue2008,
-        greeting = "May the cherries blossom for you"
+        walking = true,
+        shop = true
     }
 
     api_define_npc2(npc_def,
@@ -48,8 +48,8 @@ function npc_definition2()
     "sprites/ashley_head.png",
     "sprites/ashley_bust.png",
     "sprites/ashley_item.png",
-    "sprites/npc_dialogue_bg.png",
-    "sprites/npc_shop_bg.png",
+    "sprites/npc_dialogue_menu.png",
+    "sprites/npc_shop_menu.png",
     "npc2008_dialogue_check"
   )
 end

@@ -386,11 +386,11 @@ end
   end]]
 end
 
-spr_id = nil
+--[[spr_id = nil
 function draw()
   spr_id = api_get_sprite("sp_natura_bees_acacia_tree")
   api_draw_sprite(spr_id, 0, 100, 50)
-end
+end]]
 
 
 
@@ -719,115 +719,6 @@ end]]
 
 
 function clock()
-  --[[player = api_get_player_position()
-  birch_tree_checker = api_get_inst_in_circle("obj", player["x"], player["y"], 300)
-  birch_tree_number = 1
-  center = api_get_inst_in_circle("tree", player["x"], player["y"], 300)
-  for i, obj in ipairs(birch_tree_checker) do
-    birch_tree = api_gp(obj["id"], "oid") 
-    if birch_tree == "natura_bees_birch_tree" then
-      birch_tree_number = birch_tree_number + 1
-    end
-  end
-  if birch_tree_number < 5 then
-    for i = 1, 5 - birch_tree_number, 1 do
-      if #center ~= 0 then
-      random = api_choose(center)
-      ground = api_get_ground(random["x"], random["y"])
-        if ground == "grass1" or ground == "grass2" or ground == "grass3" or ground == "grass4" then
-          api_create_obj("natura_bees_birch_tree", random["x"], random["y"])
-        end
-      end
-    end
-  end]]
-  --[[birch_tree_present = api_get_objects(nil, "natura_bees_birch_tree")
-  pine_tree_present = api_get_objects(nil, "natura_bees_pine_tree")
-  maple_tree_present = api_get_objects(nil, "natura_bees_maple_tree")
-  mangrove_tree_present = api_get_objects(nil, "natura_bees_mangrove_tree")]]
-  --[[mystery_seed_i_present = api_get_objects(nil, "natura_bees_mystery_seed_i")
-  mystery_seed_ii_present = api_get_objects(nil, "natura_bees_mystery_seed_ii")
-  mystery_seed_iii_present = api_get_objects(nil, "natura_bees_mystery_seed_iii")
-  aquatic_mystery_seed_present = api_get_objects(nil, "natura_bees_aquatic_mystery_seed")]]
-  --flowering_maple = api_get_objects(nil, "seedling2008")
-  --[[if #birch_tree_present ~= 0 then
-    for n = 1, #birch_tree_present do
-      birch_tree1 = api_gp(birch_tree_present[n]["id"], "total_health")
-      birch_tree2 = api_gp(birch_tree_present[n]["id"], "sy") 
-      if birch_tree1 == 0 then
-        random_range = api_random_range(2.0, 4.0)
-        api_set_property(birch_tree_present[n]["id"], "total_health", random_range)
-        api_set_property(birch_tree_present[n]["id"], "current_health", random_range)
-        api_set_property(birch_tree_present[n]["id"], "sy", birch_tree2 + 11)
-      end
-    end
-  end
-  if #maple_tree_present ~= 0 then
-    for n = 1, #maple_tree_present do
-      maple_tree1 = api_gp(maple_tree_present[n]["id"], "total_health")
-      maple_tree2 = api_gp(maple_tree_present[n]["id"], "sy")
-      if maple_tree1 == 0 then
-        random_range = api_random_range(3.0, 5.0)
-        api_set_property(maple_tree_present[n]["id"], "total_health", random_range)
-        api_set_property(maple_tree_present[n]["id"], "current_health", random_range)
-        api_set_property(maple_tree_present[n]["id"], "sy", maple_tree2 + 11)
-      end
-    end
-  end
-  if #pine_tree_present ~= 0 then
-    for n = 1, #pine_tree_present do
-      pine_tree1 = api_gp(pine_tree_present[n]["id"], "total_health")
-      pine_tree2 = api_gp(pine_tree_present[n]["id"], "sy")  
-      if pine_tree1 == 0 then
-        random_range = api_random_range(4.0, 6.0)
-        api_set_property(pine_tree_present[n]["id"], "total_health", random_range)
-        api_set_property(pine_tree_present[n]["id"], "current_health", random_range)
-        api_set_property(pine_tree_present[n]["id"], "sy", pine_tree2 + 11)
-      end
-    end
-  end
-  if #mangrove_tree_present ~= 0 then
-    for n = 1, #mangrove_tree_present do
-      mangrove_tree1 = api_gp(mangrove_tree_present[n]["id"], "total_health")
-      mangrove_tree2 = api_gp(mangrove_tree_present[n]["id"], "sy")  
-      if mangrove_tree1 == 0 then
-        random_range = api_random_range(4.0, 6.0)
-        api_set_property(mangrove_tree_present[n]["id"], "total_health", random_range)
-        api_set_property(mangrove_tree_present[n]["id"], "current_health", random_range)
-        api_set_property(mangrove_tree_present[n]["id"], "sy", mangrove_tree2 + 17)
-      end
-    end
-  end]]
-  --[[if #mystery_seed_i_present ~= 0 then
-    for n = 1, #mystery_seed_i_present do
-      mystery_seed_i_id = api_gp(mystery_seed_i_present[n]["id"], "id")
-      api_destroy_inst(mystery_seed_i_id)
-    end
-  end
-  if #mystery_seed_ii_present ~= 0 then
-    for n = 1, #mystery_seed_ii_present do
-      mystery_seed_ii_id = api_gp(mystery_seed_ii_present[n]["id"], "id")
-      api_destroy_inst(mystery_seed_ii_id)
-    end
-  end
-  if #mystery_seed_iii_present ~= 0 then
-    for n = 1, #mystery_seed_iii_present do
-      mystery_seed_iii_id = api_gp(mystery_seed_iii_present[n]["id"], "id")
-      api_destroy_inst(mystery_seed_iii_id)
-    end
-  end
-  if #aquatic_mystery_seed_present ~= 0 then
-    for n = 1, #aquatic_mystery_seed_present do
-      aquatic_mystery_seed_id = api_gp(aquatic_mystery_seed_present[n]["id"], "id")
-      api_destroy_inst(aquatic_mystery_seed_id)
-    end
-  end]]
-  --[[if #flowering_maple ~= 0 then
-    for n = 1, #flowering_maple do
-      inst2 = api_get_inst(flowering_maple[n]["id"])
-      api_create_obj("natura_bees_maple_tree_acorn", inst2["x"], inst2["y"])
-      api_destroy_inst(flowering_maple[n]["id"])
-    end
-  end]]
 
   time = api_get_time()
   hour = time["clock"]

@@ -3,7 +3,7 @@
     id = "mystery1",
     name = "Mystery Seed I",
     category = "Resource",
-    tooltip = "Can be uprooted with a Spade",
+    tooltip = "Sprouts into some natural Tier I flowers",
     shop_buy = 0,
     shop_sell = 0,
     placeable = true,
@@ -17,7 +17,7 @@
     id = "mystery2",
     name = "Mystery Seed II",
     category = "Resource",
-    tooltip = "Can be uprooted with a Spade",
+    tooltip = "Sprouts into some Tier II flowers",
     shop_buy = 0,
     shop_sell = 0,
     placeable = true,
@@ -31,7 +31,7 @@
     id = "mystery3",
     name = "Mystery Seed III",
     category = "Resource",
-    tooltip = "Can be uprooted with a Spade",
+    tooltip = "Sprouts into some Tier III flowers",
     shop_buy = 0,
     shop_sell = 0,
     placeable = true,
@@ -45,11 +45,12 @@
     id = "mysterya",
     name = "Hydroponic Mystery Seed",
     category = "Resource",
-    tooltip = "Can be uprooted with a Spade",
+    tooltip = "Sprouts into some aquatic flowers",
     shop_buy = 0,
     shop_sell = 0,
     placeable = true,
-    place_grass = true,
+    place_grass = false,
+    place_water = true,
     obj = "natura_bees_aquatic_mystery_seed",
     bee_lore = "Plant this seed to see what's inside!"
   }
@@ -61,7 +62,7 @@
     id = "amber_chunks",
     name = "Amber Chunks",
     category = "Resource",
-    tooltip = "Can be uprooted with a Spade",
+    tooltip = "A golden rock! Shiny!",
     shop_buy = 0,
     shop_sell = 0,
     --placeable = true,
@@ -133,10 +134,10 @@ function define_bee()
       hint = "Prefering to live in birch trees' treetop, they might appear if you disrupt their homes.",
       desc = "This is just a cool damn bee",
       lifespan = {"Normal"},
-      productivity = {"Normal", "Fast"},
+      productivity = {"Fast", "Fastest"},
       fertility = {"Fecund", "Prolific"},
       stability = {"Normal", "Stable"},
-      behaviour = {"Nocturnal"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
@@ -145,7 +146,7 @@ function define_bee()
       --[[recipes = {
         { a = "arbor", b = "dream", s = "chaotic" }
       },]]
-      calming = {"flower10", "flower11"},
+      --calming = {"flower10", "flower11"},
       chance = 100,
       bid = "X3",
       requirement = ""
@@ -177,11 +178,11 @@ function define_bee()
         latin = "Apis Crusta",
         hint = "Prefering to live in oak trees' bark, they might appear if you disrupt their homes.",
         desc = "This is just a cool damn bee",
-        lifespan = {"Hyper"},
-        productivity = {"Normal", "Fast"},
-        fertility = {"Fecund", "Prolific"},
+        lifespan = {"Short"},
+        productivity = {"Slow", "Slowest"},
+        fertility = {"Fertile", "Fecund"},
         stability = {"Normal", "Stable"},
-        behaviour = {"Cathermal"},
+        behaviour = {"Diurnal"},
         climate = {"Temperate"},
         rainlover = false,
         snowlover = false,
@@ -190,7 +191,7 @@ function define_bee()
         --[[recipes = {
           { a = "bark", b = "trunk", s = "resin" }
         },]]
-        calming = {"flower10", "flower11"},
+        --calming = {"flower10", "flower11"},
         chance = 100,
         bid = "X3",
         requirement = ""
@@ -223,19 +224,19 @@ function define_bee()
       hint = "Prefering to live in mangrove trees' roots, they might appear if you disrupt their homes.",
       desc = "This is just a cool damn bee",
       lifespan = {"Normal"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
+      productivity = {"Sluggish"},
+      fertility = {"Unlucky", "Fertile"},
       stability = {"Normal", "Stable"},
       behaviour = {"Nocturnal"},
       climate = {"Temperate"},
-      rainlover = false,
+      rainlover = true,
       snowlover = false,
-      grumpy = true,
+      grumpy = false,
       produce = "flora4",
       --[[recipes = {
         { a = "arbor", b = "dream", s = "chaotic" }
       },]]
-      calming = {"flower10", "flower11"},
+      --calming = {"flower10", "flower11"},
       chance = 100,
       bid = "X3",
       requirement = ""
@@ -261,18 +262,18 @@ function define_bee()
       desc = "This is just a cool damn bee",
       lifespan = {"Normal"},
       productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
+      fertility = {"Fertile", "Fecund"},
       stability = {"Normal", "Stable"},
-      behaviour = {"Nocturnal"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
-      grumpy = true,
+      grumpy = false,
       produce = "flora1",
       --[[recipes = {
         { a = "trunk", b = "bark", s = "resin" }
       },]]
-      calming = {"flower10", "flower11"},
+      --calming = {"flower10", "flower11"},
       chance = 100,
       bid = "X3",
       requirement = ""
@@ -296,11 +297,11 @@ function define_bee()
       latin = "Apis Pedunculus",
       hint = "Prefering to live in flowers, they might appear if you disrupt their homes.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
+      lifespan = {"Normal"},
       productivity = {"Normal", "Fast"},
       fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
+      stability = {"Normal"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
@@ -332,22 +333,22 @@ function define_bee()
       id = "lotus",
       title = "Lotus",
       latin = "Apis Lotos",
-      hint = "Prefering to live in pine trees' trunks, they might appear if you disrupt their homes.",
+      hint = "Prefering to live in aquactic flowers, they might appear if you disrupt their homes.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
+      lifespan = {"Normal"},
       productivity = {"Normal", "Fast"},
       fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
+      stability = {"Normal"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
-      rainlover = false,
+      rainlover = true,
       snowlover = false,
       grumpy = false,
       produce = "natura_bees_mysterya",
       --[[recipes = {
         { a = "trunk", b = "bark", s = "resin" }
       },]]
-      calming = {"flower1", "flower2", "flower3"},
+      --calming = {"flower1", "flower2", "flower3"},
       chance = 100,
       bid = "X3",
       requirement = "Needs lots of aquatic flowers nearby"
@@ -373,11 +374,11 @@ function define_bee()
       latin = "Apis Alabastra",
       hint = "Prefering to live in flowers, they might appear if you disrupt their homes.",
        desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
+      lifespan = {"Long"},
+      productivity = {"Fast", "Fastest"},
+      fertility = {"Prolific", "Swarming"},
+      stability = {"Unstable", "Normal"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
@@ -387,7 +388,7 @@ function define_bee()
         { a = "floral", b = "lotus", s = "bouquet" }
       },
       --calming = {"flower1", "flower2", "flower3"},
-      chance = 100,
+      --chance = 100,
       bid = "X3",
       requirement = ""
     }
@@ -411,21 +412,21 @@ function define_bee()
       latin = "Apis Flos",
       hint = "Prefering to live in flowers, they might appear if you disrupt their homes.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
+      lifespan = {"Long"},
+      productivity = {"Fast", "Fastest", "Brisk"},
+      fertility = {"Swarming"},
+      stability = {"Erratic", "Unstable"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
       grumpy = false,
       produce = "natura_bees_mystery3",
-      --[[recipes = {
-      { a = "floral", b = "floral", s = "lotus" }
-      },]]
+      recipes = {
+      { a = "floral", b = "bouquet", s = "garden" }
+      },
       --calming = {"flower1", "flower2", "flower3"},
-      chance = 100,
+      --chance = 100,
       bid = "X3",
       requirement = ""
     }
@@ -449,20 +450,20 @@ function define_bee()
       latin = "Apis Resinae",
       hint = "Some say when Praeteria found its way with Silva surrounded by trees, this species was born.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
-      climate = {"Temperate"},
+      lifespan = {"Long"},
+      productivity = {"Slow", "Slowest"},
+      fertility = {"Unlucky", "Fertile"},
+      stability = {"Ordered"},
+      behaviour = {"Diurnal"},
+      climate = {"Polar"},
       rainlover = false,
       snowlover = false,
       grumpy = false,
-      produce = "log",
-      recipes = {
+      produce = "flora5",
+      --[[recipes = {
         { a = "resin", b = "ghost", s = "amber" }
-      },
-      calming = {"flower10", "flower11"},
+      },]]
+      --calming = {"flower10", "flower11"},
       chance = 50,
       bid = "X3",
       requirement = ""
@@ -490,20 +491,20 @@ function define_bee()
       latin = "Apis Acernus",
       hint = "Some say when Praeteria found its way with Silva surrounded by trees, this species was born.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
+      lifespan = {"Normal"},
+      productivity = {"Slow", "Normal"},
+      fertility = {"Fertile", "Fecund"},
       stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
       grumpy = false,
-      produce = "log",
+      produce = "flora8",
       --[[recipes = {
         { a = "resin", b = "ghost", s = "amber" }
       },]]
-      calming = {"flower10", "flower11"},
+      --calming = {"flower10", "flower11"},
       chance = 50,
       bid = "X3",
       requirement = ""
@@ -532,19 +533,19 @@ function define_bee()
       hint = "Some say when Praeteria found its way with Silva surrounded by trees, this species was born.",
       desc = "This is just a cool damn bee",
       lifespan = {"Hyper"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
-      climate = {"Temperate"},
-      rainlover = false,
-      snowlover = false,
+      productivity = {"Sluggish"},
+      fertility = {"Sterile"},
+      stability = {"Erratic"},
+      behaviour = {"Crepuscular"},
+      climate = {"Polar"},
+      rainlover = true,
+      snowlover = true,
       grumpy = false,
       produce = "flora6",
       --[[recipes = {
         { a = "amber", b = "dream", s = "chaotic" }
       },]]
-      calming = {"flower10", "flower11"},
+      --calming = {"flower10", "flower11"},
       chance = 100,
       bid = "X3",
       requirement = ""
@@ -572,20 +573,20 @@ function define_bee()
       latin = "Apis Electrum",
       hint = "Some say when Praeteria found its way with Silva surrounded by trees, this species was born.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Normal"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
+      lifespan = {"Eternal"},
+      productivity = {"Sluggish", "Slowest"},
+      fertility = {"Infertile", "Unlucky"},
+      stability = {"Ordered", "Pure"},
       behaviour = {"Nocturnal"},
-      climate = {"Temperate"},
+      climate = {"Tropic"},
       rainlover = false,
       snowlover = false,
       grumpy = false,
       produce = "natura_bees_amber_chunks",
-      --[[recipes = {
-        { a = "amber", b = "dream", s = "chaotic" }
-      },]]
-      calming = {"flower10", "flower11"},
+      recipes = {
+        { a = "resin", b = "ghost", s = "amber" }
+      },
+      --calming = {"flower10", "flower11"},
       chance = 36,
       bid = "X3",
       requirement = "When surrounded by trees"
@@ -612,11 +613,11 @@ function define_bee()
       latin = "Apis Natura",
       hint = "Some say when Praeteria found its way with Silva surrounded by trees, this species was born.",
       desc = "This is just a cool damn bee",
-      lifespan = {"Hyper"},
-      productivity = {"Normal", "Fast"},
-      fertility = {"Fecund", "Prolific"},
-      stability = {"Normal", "Stable"},
-      behaviour = {"Cathermal"},
+      lifespan = {"Normal"},
+      productivity = {"Normal"},
+      fertility = {"Swarming"},
+      stability = {"Pure"},
+      behaviour = {"Diurnal"},
       climate = {"Temperate"},
       rainlover = false,
       snowlover = false,
@@ -625,7 +626,7 @@ function define_bee()
       --[[recipes = {
         { a = "amber", b = "dream", s = "chaotic" }
       },]]
-      calming = {"flower10", "flower11"},
+      --calming = {"flower10", "flower11"},
       chance = 100,
       bid = "X3",
       requirement = ""

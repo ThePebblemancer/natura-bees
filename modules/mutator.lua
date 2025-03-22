@@ -8,12 +8,12 @@ api_define_trait("in_natura", {
 
 
 INDUSTRIAL_BEES = {"bee:crystal", "bee:ancient", "bee:bohemian", "bee:prolific", "bee:industrious", "bee:empress"}
-MAN_MADE_BEES = {"bee:regal", "bee:worker", "bee:stubborn", "bee:domesticated", "bee:hermit"}
-MODIFIED_BEES = {"bee:verdant", "bee:vibrant", "bee:misty", "bee:arctic", "bee:blazing"}
-IN_NATURA_BEES = {"bee:common", "bee:uncommon", "bee:forest", "bee:verge", "bee:rocky", "bee:murky", "bee:muggy", "bee:frosty", "bee:fiery"}
-MORE_THAN_NATURAL_BEES = {"bee:glowing", "bee:drowsy", "bee:jurassic", "bee:melodic"}
-OVERLY_NATURAL_BEES = {"bee:dream", "bee:twilight", "bee:lighting", "bee:hallowed"}
-SUPERNATURAL_BEES = {"bee:sacred"}
+MAN_MADE_BEES = {"bee:regal", "bee:worker", "bee:stubborn", "bee:domesticated", "bee:hermit", "bee:calcified", "bee:maple"}
+MODIFIED_BEES = {"bee:verdant", "bee:vibrant", "bee:misty", "bee:arctic", "bee:blazing", "bee:rusted", "bee:resin"}
+IN_NATURA_BEES = {"bee:common", "bee:uncommon", "bee:forest", "bee:verge", "bee:rocky", "bee:murky", "bee:muggy", "bee:frosty", "bee:fiery", "bee:coral", "bee:topaz", "bee:emerald", "bee:treetop", "bee:bark", "bee:root", "bee:trunk", "bee:floral", "bee:lotus", "bee:nature"}
+MORE_THAN_NATURAL_BEES = {"bee:glowing", "bee:drowsy", "bee:jurassic", "bee:melodic", "bee:abyssal", "bee:bouquet"}
+OVERLY_NATURAL_BEES = {"bee:dream", "bee:twilight", "bee:lighting", "bee:hallowed", "bee:prismatic", "bee:garden", "bee:amber"}
+SUPERNATURAL_BEES = {"bee:sacred", "bee:emissary", "bee:luminous", "bee:forgotten", "bee:primordial", "bee:ghost"}
 
 BEE_PRODUCE = {"log", "beepollen", "stickypearl", "honeydew", "combfragment", "waxypearl", "hivedust", "morningdew", "dye9", "spice1", "stickyshard", "claydust", "dye11", "stone", "royaljelly", "canister2", "waxshard", "glossypearl", "spice2", "dye10", "icyshard", "charredpearl", "spice3", "honeycore2", "spice4", "seed0", "gloriouspearl", "frame5", "unstabledust", "dye17", "spice5", "queenspearl", "discfragment", "lightningshard", "dye18", "blessedpearl", "randomjelly", "dye1", "dye7", "dye8", "flora4", "flora2", "flora1", "dye6", "dye3", "dye2", "flora4", "flora2", "flora1", "flora6", "natura_bees_amber_chunks"}
 

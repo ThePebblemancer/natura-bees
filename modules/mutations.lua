@@ -12,7 +12,7 @@ function mutation_chance(bee_a, bee_b, beehive)
       if chance >= 82 and #trees_around >= 10 then return true end
     end
 
-    if (bee_a == "bark" and bee_b == "trunk") or (bee_a == "trunk" and bee_b == "bark") then
+    --[[if (bee_a == "bark" and bee_b == "trunk") or (bee_a == "trunk" and bee_b == "bark") then
       objects_around = api_get_inst_in_circle("menu_obj", pos["x"], pos["y"], 100)
       tapper_count = 0
       for i, menu_obj in ipairs(objects_around) do
@@ -24,7 +24,7 @@ function mutation_chance(bee_a, bee_b, beehive)
       end
       chance = api_random(99) + 1
       if chance >= 75 and tapper_count >= 5 then return true end
-    end
+    end]]
 
 
 
@@ -51,6 +51,16 @@ function mutation_chance(bee_a, bee_b, beehive)
       aquatic4 = api_get_objects(100, "flower7", pos)
       chance = api_random(99) + 1
       if chance >= 1 and #aquatic1 >= 1 and #aquatic2 >= 1 and #aquatic3 >= 1 and #aquatic4 >= 1 then return true end
+    end
+
+    if (bee_a == "floral" and bee_b == "bouquet") or (bee_a == "bouquet" and bee_b == "floral") then
+  
+      flower9 = api_get_objects(100, "flower9", pos)
+      flower10 = api_get_objects(100, "flower10", pos)
+      flower12 = api_get_objects(100, "flower12", pos)
+      flower13 = api_get_objects(100, "flower13", pos)
+      chance = api_random(99) + 1
+      if chance >= 1 and #flower9 >= 1 and #flower10 >= 1 and #flower12 >= 1 and #flower13 >= 1 then return true end
     end
 
       return false
